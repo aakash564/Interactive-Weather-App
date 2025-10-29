@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "apiService": "./lib/apiService.js",
+                "weatherDisplay": "./lib/weatherDisplay.js"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="app" class="weather-app sunny">
+        <header class="search-container">
+            <input type="text" id="location-input" placeholder="Enter city name..." autocomplete="off">
+            <button id="search-button">Search</button>
+        </header>
+
+        <main id="weather-content" class="hidden">
+            <div class="current-weather">
+                <h1 id="location-name"></h1>
+                <div class="main-info">
+                    <img id="weather-icon" src="" alt="Weather Icon" class="icon">
+                    <span id="temperature" class="temperature"></span>
+                </div>
+                <p id="condition-description" class="description"></p>
+            </div>
+
+            <div class="details-panel">
+                <h2>Details</h2>
+                <ul>
+                    <li>Feels Like: <span id="feels-like">N/A</span></li>
+                    <li>Humidity: <span id="humidity">N/A</span></li>
+                    <li>Wind Speed: <span id="wind-speed">N/A</span></li>
+                    <li>Pressure: <span id="pressure">N/A</span></li>
+                </ul>
+            </div>
+            
+            <section class="forecast-container">
+                <h2>5-Day Forecast</h2>
+                <div id="forecast-list" class="forecast-list">
+                    <!-- Forecast items go here -->
+                </div>
+            </section>
+        </main>
+
+        <div id="error-message" class="error-message hidden">
+            Location not found or service unavailable.
+        </div>
+    </div>
+    
+    <script type="module" src="main.js"></script>
+</body>
+</html>
+
